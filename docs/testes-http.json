@@ -1,0 +1,173 @@
+[
+  {
+    "method": "POST",
+    "path": "/api/v1/produtos",
+    "status": 201,
+    "body": {
+      "id": 2,
+      "nome": "Caderno universitário",
+      "categoria": "Papelaria",
+      "preco": 24.9,
+      "quantidade": 30
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/produtos",
+    "status": 200,
+    "body": [
+      {
+        "id": 2,
+        "nome": "Caderno universitário",
+        "categoria": "Papelaria",
+        "preco": 24.9,
+        "quantidade": 30
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/produtos/2",
+    "status": 200,
+    "body": {
+      "id": 2,
+      "nome": "Caderno universitário",
+      "categoria": "Papelaria",
+      "preco": 24.9,
+      "quantidade": 30
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/produtos/2",
+    "status": 204,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/produtos/2",
+    "status": 200,
+    "body": {
+      "id": 2,
+      "nome": "Caderno universitário",
+      "categoria": "Papelaria",
+      "preco": 24.9,
+      "quantidade": 12
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/produtos",
+    "status": 400,
+    "body": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "Nome": [
+          "Informe o nome.",
+          "O nome deve ter entre 2 e 100 caracteres."
+        ],
+        "Preco": [
+          "O preço deve estar entre 0,01 e 999999,99."
+        ],
+        "Categoria": [
+          "Informe a categoria.",
+          "The field Categoria must be a string with a minimum length of 2 and a maximum length of 60."
+        ],
+        "Quantidade": [
+          "A quantidade deve estar entre 0 e 1000000."
+        ]
+      },
+      "traceId": "00-cc023c3f15fcaf6ba005368b278f0d3d-27b1753f10c2bf6a-00"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/produtos/2",
+    "status": 400,
+    "body": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "Nome": [
+          "Informe o nome.",
+          "O nome deve ter entre 2 e 100 caracteres."
+        ],
+        "Preco": [
+          "O preço deve estar entre 0,01 e 999999,99."
+        ],
+        "Categoria": [
+          "Informe a categoria.",
+          "The field Categoria must be a string with a minimum length of 2 and a maximum length of 60."
+        ],
+        "Quantidade": [
+          "A quantidade deve estar entre 0 e 1000000."
+        ]
+      },
+      "traceId": "00-af8f37754eb51adf20c7090fd17a7f75-90c8c974fbf974bf-00"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/produtos",
+    "status": 400,
+    "body": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "Preco": [
+          "The Preco field is required."
+        ],
+        "Quantidade": [
+          "The Quantidade field is required."
+        ]
+      },
+      "traceId": "00-5886f185dcd26f5c68d0e3ba4c55a92e-0ecd896b4c6b6486-00"
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/produtos/2",
+    "status": 204,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/produtos/2",
+    "status": 404,
+    "body": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Produto não encontrado",
+      "status": 404,
+      "detail": "Não existe produto com o ID 2.",
+      "traceId": "00-3902240e57a2d1e85a81ae5550488461-ed01db75c933dc97-00"
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/produtos/2",
+    "status": 404,
+    "body": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Produto não encontrado",
+      "status": 404,
+      "detail": "Não existe produto com o ID 2.",
+      "traceId": "00-6b48f3429bd5c0e0f7c86440390ef696-985a1baa2d546e6e-00"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/produtos/2",
+    "status": 404,
+    "body": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Produto não encontrado",
+      "status": 404,
+      "detail": "Não existe produto com o ID 2.",
+      "traceId": "00-00825e4bd59f5589671352d007cb899e-dbd68441cf640457-00"
+    }
+  }
+]

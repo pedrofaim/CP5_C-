@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "EstoqueFácil API — CP5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5080"
+    },
+    {
+      "key": "produtoId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Criar produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/produtos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Caderno universitário\",\n  \"categoria\": \"Papelaria\",\n  \"preco\": 24.9,\n  \"quantidade\": 30\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Criado com 201\", () => pm.response.to.have.status(201));",
+              "if (pm.response.code === 201) pm.collectionVariables.set(\"produtoId\", pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Listar produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/produtos"
+      }
+    },
+    {
+      "name": "Buscar produto",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/produtos/{{produtoId}}"
+      }
+    },
+    {
+      "name": "Atualizar produto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/produtos/{{produtoId}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Caderno universitário\",\n  \"categoria\": \"Papelaria\",\n  \"preco\": 24.9,\n  \"quantidade\": 12\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Dados inválidos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/produtos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"\",\n  \"categoria\": \"\",\n  \"preco\": -1,\n  \"quantidade\": -1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Excluir produto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/produtos/{{produtoId}}"
+      }
+    },
+    {
+      "name": "Buscar após excluir",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/produtos/{{produtoId}}"
+      }
+    }
+  ]
+}
